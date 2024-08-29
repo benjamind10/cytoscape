@@ -26,6 +26,71 @@
 */
 
 var cy; // Cytoscape instance variable
+const staticData = {
+  edges: [
+    {
+      data: {
+        source: 1,
+        target: 3,
+        id: "1to3",
+      },
+    },
+  ],
+  areas: [
+    {
+      data: {
+        label: "Test Area",
+        id: 5,
+      },
+      classes: [],
+      position: {
+        x: 1461.4707968781638,
+        y: 826.1919896825835,
+      },
+    },
+  ],
+  nodes: [
+    {
+      data: {
+        parent: 5,
+        eqPath: "GPA/Virginia/Mixing/Mixer 1/Drum",
+        label: "Drum",
+        id: 1,
+      },
+      classes: [],
+      position: {
+        x: 1461.4707968781638,
+        y: 835.1919896825835,
+      },
+    },
+    {
+      data: {
+        parent: null,
+        eqPath: "GPA/Virginia/Mixing/Mixer 1/Sweeper",
+        label: "Sweeper",
+        id: 3,
+      },
+      classes: [],
+      position: {
+        x: 624.3923759479773,
+        y: 794.3089897305413,
+      },
+    },
+    {
+      data: {
+        parent: null,
+        eqPath: "GPA/Virginia/Mixing/Mixer 1/PatrickTest",
+        label: "PatrickTest",
+        id: 4,
+      },
+      classes: [],
+      position: {
+        x: 640.114431119948,
+        y: 383.8783597551429,
+      },
+    },
+  ],
+};
 
 document.addEventListener("DOMContentLoaded", function () {
   setupCytoscape(staticData); // Setup Cytoscape with static data
