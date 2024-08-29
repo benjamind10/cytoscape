@@ -1,8 +1,9 @@
-export const staticData = [
+const staticData = [
   {
     data: {
       id: "depaletizer",
       label: "Depaletizer",
+      eqPath: "Enterprise/Site/Area/Line/Cell",
     },
     position: {
       x: 1461.4707968781638,
@@ -105,7 +106,7 @@ export const staticData = [
   {
     data: {
       id: "labelerArea",
-      label: "Labler Area",
+      label: "Labeler Area",
     },
     position: {
       x: 674.4215219421451,
@@ -116,7 +117,7 @@ export const staticData = [
   {
     data: {
       id: "labelerSideCLP",
-      label: "labeler Side CLP",
+      label: "Labeler Side CLP",
       parent: "labelerArea",
     },
     position: {
@@ -128,7 +129,7 @@ export const staticData = [
   {
     data: {
       id: "labelerUPC",
-      label: "labeler UPC",
+      label: "Labeler UPC",
       parent: "labelerArea",
     },
     position: {
@@ -304,7 +305,7 @@ export const staticData = [
   },
   {
     data: {
-      id: "multiWickCutterToLablerArea",
+      id: "multiWickCutterTolabelerArea",
       source: "multiWickCutter",
       target: "labelerArea",
     },

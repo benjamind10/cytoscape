@@ -16,5 +16,15 @@
       <button onclick="resetZoom()">Reset Zoom</button>
       <button onclick="logPositions()">Log Node Positions</button>
     </div>
+    <!-- Modal Structure -->
+    <div id="nodeModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h4>Node Information</h4>
+        <p id="nodeInfo">No data</p>
+      </div>
+      <div class="modal-footer">
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div>
   </body>
 </html>
