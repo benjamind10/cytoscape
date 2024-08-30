@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 501 392" preserveAspectRatio="xMidYMid meet">
+   <!-- Background with rounded edges (10px radius) -->
+   <rect id="background-rect" x="0" y="0" width="501" height="392" fill="#008a00" stroke="#005700" stroke-width="0" rx="55" ry="55" />
+
+   <!-- Title at the top -->
+   <text id="asset-title" x="250" y="70" fill="#ffffff" font-size="70" font-family="Arial" text-anchor="middle" font-weight="bold">Area 1 - Line 1</text>
+
+   <!-- OEE label -->
+   <text id="oee-label" x="250" y="375" fill="#ffffff" font-size="70" font-family="Arial" text-anchor="middle" font-weight="bold">OEE: 95%</text>
+
+   <!-- Icon group: Dynamically load an external icon -->
+   <g id="center-icon" transform="translate(150, 100)">
+       <image href="icon-path.svg" width="200" height="200" />
+   </g>
+</svg>
+

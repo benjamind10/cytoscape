@@ -37,7 +37,7 @@ html {
 /* Button enhancements */
 button {
   padding: 10px 15px;
-  background: rgba(40, 44, 52, 0.85);
+  background: rgba(34, 102, 163, 0.85); /* Deep blue */
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -47,27 +47,16 @@ button {
 }
 
 button:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(72, 133, 237, 0.85); /* Light blue hover effect */
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.modal {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid #ccc;
-  background-color: gey;
-  z-index: 1000;
-  padding: 20px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+/* Optional additional button styles for a secondary action */
+button.secondary {
+  background: rgba(84, 165, 121, 0.85); /* Soft green for secondary buttons */
 }
 
-.modal-content {
-  margin-bottom: 20px;
-}
-
-.modal-footer {
-  text-align: right;
+button.secondary:hover {
+  background: rgba(109, 185, 143, 0.85); /* Light green hover effect */
 }
