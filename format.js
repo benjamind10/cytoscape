@@ -259,10 +259,16 @@ function updateMetrics() {
             const newLabel = `${metric[0].name || node.data("originalLabel")}\n\nOEE: ${metric[0].oee}%`;
             node.data("label", newLabel);
 
-            if (metric[0].state !== "Running") {
-              node.style({ "background-color": "#ff0000" }); // Set to red if not running
-            } else {
-              node.style({ "background-color": "#008a00" }); // Reset to green if running
+            // Update background color based on the state
+            //            const newStateColor = metric[0].state !== "Running" ? "#ff0000" : "#008a00";
+            const newStateColor = metric[0].stateColor;
+            node.style({ "background-color": newStateColor });
+
+            // Dynamically update the background image based on the state icon
+            if (metric[0].stateIcon) {
+              const iconName = metric[0].stateIcon.split("/").pop();
+              const newIconPath = `/system/webdev/mes_gateway/cytoscape/assets/${iconName}.svg`;
+              node.style({ "background-image": `url('${newIconPath}')` });
             }
           }
         });
@@ -305,22 +311,27 @@ function getNodeStyles() {
         "font-weight": "bold",
         width: function (ele) {
           const text = `${ele.data("label")}\nOEE: ${ele.data("oee") || "N/A"}%`;
-          return Math.max(100, measureText(text, "20")) + "px"; // Ensuring a minimum width and padding
+          return Math.max(100, measureText(text, "20")) + "px";
         },
         height: "70px",
+        //        "background-image": "url('')",
+        "background-width": "20px",
+        "background-height": "20px",
+        "background-position-x": "100%",
+        "background-position-y": "0%",
+        "background-repeat": "no-repeat",
       },
     },
     {
       selector: "$node > node", // This selects compound (parent) nodes
       style: {
-        "background-color": "#f2f2f2", // Light grey background for parent nodes
-        "background-opacity": 0.5, // Semi-transparent
+        "background-image": "none",
+        "background-color": "#f2f2f2",
+        "background-opacity": 0.5,
         "border-color": "#ccc",
         "border-width": 2,
         padding: "10px",
         label: "",
-        //          "text-valign": "center",
-        //          "text-halign": "center",
         "font-size": "20px",
         "text-margin-y": -20,
         color: "white",
