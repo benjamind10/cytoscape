@@ -38,15 +38,19 @@ let cy; // Make cy accessible throughout the script
 // Initializes the Cytoscape graph when the document is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   fetchData(); // Fetch initial data and setup Cytoscape
+  checkUserRole();
 });
 
 // Fetches graph data based on the lineId query parameter
 function fetchData() {
-  const lineId = new URLSearchParams(window.location.search).get("lineId"); // Get lineId from URL parameters
+  const params = new URLSearchParams(window.location.search);
+  const lineId = params.get("lineId"); // Get lineId from URL parameters
+
   if (!lineId) {
     console.error("lineId query parameter is missing.");
     return;
   }
+
   fetch(`/system/webdev/mes_gateway/cytoscape/routes/model?lineId=${lineId}`)
     .then((response) => response.json())
     .then((data) => {
@@ -350,4 +354,25 @@ function getNodeStyles() {
       },
     },
   ];
+}
+
+function checkUserRole() {
+  const params = new URLSearchParams(window.location.search);
+  const userName = params.get("user");
+
+  if (!userName) {
+    console.error("User parameter is missing.");
+    return;
+  }
+
+  fetch(`/system/webdev/mes_gateway/cytoscape/routes/user?user=${userName}`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.isAdmin) {
+        document.getElementById("savePositionsBtn").style.display = "";
+      } else {
+        document.getElementById("savePositionsBtn").style.display = "none";
+      }
+    })
+    .catch((error) => console.error("Error fetching user role:", error));
 }
